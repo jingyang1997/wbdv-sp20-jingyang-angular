@@ -5,8 +5,13 @@
   <li *ngFor="let course of courses" class="list-group-item">
     <i class="fa fa-file"></i>
     <a href="/table/{{course._id}}/modules">
-      {{course.title}}
+      {{this.course.title}}
     </a>
+    <a class="float-right"
+       href="/courses/{{course._id}}/quizzes">
+      Quizzes
+    </a>
+
   </li>
 </ul>
 

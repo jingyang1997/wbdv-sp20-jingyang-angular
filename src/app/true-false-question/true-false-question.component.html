@@ -1,0 +1,39 @@
+<h5>{{question.question}}</h5>
+<div [ngClass]="{
+  'list-group-item list-group-item-success': grading==true && question.correct=='true',
+  'list-group-item list-group-item-danger' : grading==true && answer=='true' && question.correct=='false',
+  'list-group-item' : grading==false || (answer=='false' && question.correct=='false')
+}">
+<label>
+  <input type="radio"
+         value="true"
+         [(ngModel)]="answer"
+         name="{{question._id}}"/>
+  True
+</label>
+<i class="float-right fa fa-check" [hidden]="grading == false || question.correct=='false'"></i>
+<i class="float-right fa fa-times" [hidden]="grading==false || answer!='true' || question.correct=='true'"></i>
+</div>
+<br/>
+<div [ngClass]="{
+  'list-group-item list-group-item-success': grading==true && question.correct=='false',
+  'list-group-item list-group-item-danger' : grading==true && answer=='false' && question.correct=='true',
+  'list-group-item' : grading==false || (answer=='true' && question.correct=='true')
+}">
+<label>
+  <input type="radio"
+         value="false"
+         [(ngModel)]="answer"
+         name="{{question._id}}"/>
+  False
+</label>
+<i class="float-right fa fa-check" [hidden]="grading == false || question.correct=='true'"></i>
+<i class="float-right fa fa-times" [hidden]="grading==false || answer!='false' || question.correct=='false'"></i>
+</div>
+<br/>
+Your answer: {{answer}}
+<br/>
+<button class="btn btn-success" (click)="grade()">
+  Grade
+</button>
+

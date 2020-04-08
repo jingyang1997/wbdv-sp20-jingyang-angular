@@ -11,11 +11,7 @@ export class ModuleListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private service: ModuleServiceClient) { }
 
-  modules = [
-    {_id: '123', title: 'Module 1'},
-    {_id: '234', title: 'Module 2'},
-    {_id: '345', title: 'Module 3'},
-  ]
+  modules = []
   courseId = ''
   moduleId = ''
   ngOnInit(): void {
