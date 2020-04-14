@@ -1,0 +1,13 @@
+<h2>Attempts</h2>
+<ul class="list-group">
+  <li *ngFor="let attempt of attempts" class="list-group-item">
+    <div>
+      <div class="float-left">
+        <a routerLink="/courses/{{courseId}}/quizzes/{{quizId}}">
+          {{attempt.quiz.title}}
+        </a>
+      </div>
+      <div class="float-right">Score: {{attempt.score}}</div>
+    </div>
+  </li>
+</ul>

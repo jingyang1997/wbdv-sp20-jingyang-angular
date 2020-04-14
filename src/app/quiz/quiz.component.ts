@@ -14,6 +14,17 @@ export class QuizComponent implements OnInit {
 
   questions = []
   quizId = ''
+  submitQuiz = () => {
+    fetch(`https://aqueous-cliffs-79853.herokuapp.com/api/quizzes/${this.quizId}/attempts`, {
+      method: 'POST',
+      body: JSON.stringify(this.questions),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json())
+      .then(result => console.log(result))
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.quizId = params.quizId;

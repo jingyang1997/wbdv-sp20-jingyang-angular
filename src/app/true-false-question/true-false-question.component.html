@@ -30,10 +30,15 @@
 <i class="float-right fa fa-check" [hidden]="grading == false || question.correct=='true'"></i>
 <i class="float-right fa fa-times" [hidden]="grading==false || answer!='false' || question.correct=='false'"></i>
 </div>
-<br/>
-Your answer: {{answer}}
-<br/>
-<button class="btn btn-success" (click)="grade()">
-  Grade
-</button>
+<div [hidden]="question.answer==null">
+  The answer you chose for this question was: {{question.answer}}
+</div>
+<div [hidden]="question.answer!=null">
+  <br/>
+  Your answer: {{answer}}
+  <br/>
+  <button class="btn btn-success" (click)="submitAnswer()">
+    Submit
+  </button>
+</div>
 

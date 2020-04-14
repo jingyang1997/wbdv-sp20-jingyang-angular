@@ -11,7 +11,6 @@ export class QuizzesComponent implements OnInit {
   quizzes = []
   courseId = ''
   constructor(private service: QuizServiceClient, private route: ActivatedRoute) { }
-
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.courseId = params.courseId;
